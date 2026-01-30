@@ -1,30 +1,30 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{esime-report}[2026/01/29 v1.0 Plantilla de reportes ESIME]
+\ProvidesClass{esime-report}[2026/01/30 v1.0 Plantilla de reportes ESIME]
 
-% Heredar de la clase article (estándar para reportes)
+% Heredar de la clase report
 \LoadClass[12pt, letterpaper]{article}
 
 % --- Paquetes Requeridos ---
-% Usamos \RequirePackage en lugar de \usepackage en archivos .cls
-\RequirePackage[utf8]{inputenc}
-\RequirePackage[spanish, es-tabla, es-nodecimaldot, shorthands=off]{babel}
-\RequirePackage{tikz}
+% Se usa \RequirePackage en lugar de \usepackage
+\RequirePackage[utf8]{inputenc} % Compatibilidad
+\RequirePackage[spanish, es-tabla, es-nodecimaldot, shorthands=off]{babel} % Para que funcione bien el español y no rompa nada
+\RequirePackage{tikz} % Gráficos
 \usetikzlibrary{calc}
-\RequirePackage{geometry}
-\RequirePackage{graphicx}
-\RequirePackage{etoolbox}
-\RequirePackage{anyfontsize} % Para tamaños de fuente personalizados si hacen falta
+\RequirePackage{geometry} % Modificar propiedades de la página
+\RequirePackage{graphicx} % Insertar gráficos
+\RequirePackage{etoolbox} % Para \ifdefempty
+\RequirePackage{anyfontsize} % Usar cualquier tamaño de font
 
-% --- Configuración de Márgenes (Geometría del documento) ---
+% --- Configuración de márgenes ---
 \geometry{
-    top=2.5cm,
-    bottom=2.5cm,
-    left=2.5cm,
-    right=2.5cm
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in
 }
 
-% --- Definición de Variables (Metadatos) ---
-% Creamos comandos para guardar la información del usuario
+% --- Definición de variables (Metadatos) ---
+% Creamos comandos para guardar la información de la portada
 \newcommand{\@subtitle}{}
 \newcommand{\@boleta}{}
 \newcommand{\@grupo}{}
@@ -40,10 +40,9 @@
 \newcommand{\asignatura}[1]{\renewcommand{\@asignatura}{#1}}
 \newcommand{\profesor}[1]{\renewcommand{\@profesor}{#1}}
 \newcommand{\carrera}[1]{\renewcommand{\@carrera}{#1}}
-\newcommand{\equipo}[2]{\renewcommand{\@equipo}{#1}}
+\newcommand{\equipo}[2]{\renewcommand{\@equipo}{#1}} % Aún no implementado
 
 % --- Redefinición del comando \maketitle ---
-% Aquí va tu lógica de TikZ, pero inyectando las variables
 \renewcommand{\maketitle}{
 	\begin{titlepage}
 		\thispagestyle{empty}
@@ -51,25 +50,29 @@
             
 		% --- Imágenes (Logos) ---
 		% Debe existir una carpeta 'imagenes/' en el directorio raíz
+		% Logo superior izquierdo
 		\node[anchor=center] at ($(current page.north west) + (1.5in, -1.5in)$) {
 			\includegraphics[width=3cm]{imagenes/esime.png}
 		};
+		% Logo superior derecho
 		\node[anchor=center] at ($(current page.north east) + (-1.5in, -1.5in)$) {
 			\includegraphics[height=3cm]{imagenes/ipn.png}
 		};
-		% Logo inferior (opcional, ajustado para que no choque con texto)
+		% Logo inferior izquierdo
 		\node[anchor=center] at ($(current page.south west) + (1.5in, 1.5in)$) {
 			\includegraphics[width=3cm]{imagenes/esime-ice.png}
 		};
 
 		% --- Elementos Gráficos (Líneas) ---
+		% Líneas del encabezado
 		\draw[line width=1mm] ($(current page.north west) + (2.5in, -1.5in)$) -- ($(current page.north east) + (-2.5in, -1.5in)$);
 		\draw[line width=0.5mm] ($(current page.north west) + (2.5in, -1.6in)$) -- ($(current page.north east) + (-2.5in, -1.6in)$);
-            
+
+		% Líneas del márgen izquierdo
 		\draw[line width=1mm] ($(current page.north west) + (1.45in, -2.5in)$) -- ($(current page.south west) + (1.45in, 2.5in)$);
 		\draw[line width=0.5mm] ($(current page.north west) + (1.55in, -2.5in)$) -- ($(current page.south west) + (1.55in, 2.5in)$);
 
-		% --- Encabezado Institucional ---
+		% --- Encabezado institucional ---
 		\node[anchor = north] at ($(current page.north) + (0in, -1.2in)$) {%
 			\Large{\textbf{Instituto Politécnico Nacional}}
 		};
@@ -84,14 +87,14 @@
 		\node at ($(current page.center) + (0in, 0.5in)$) {
 			\begin{minipage}{10cm}
 			\centering
-			\huge\textbf{\@title}
-    
-			\vspace{0.5cm}
-			\large\@subtitle% Usamos el campo date para subtítulos o fecha
+			\huge\textbf{\@title} % No es opcional porque ¿Por qué debería ser opcional?
+
+    		\ifdefempty{\@subtitle}{}{\vspace{0.5cm}\large\@subtitle} % Subtitulo opcional
 			\end{minipage}
 		};
 
-		% --- Datos del Alumno y Curso ---
+		% --- Datos del alumno y curso ---
+		% Los datos son opcionales por si no se requieren
 		\node[anchor=south] at ($(current page.south) + (0in, 1in)$) {
 			\begin{minipage}{8cm}
 			\normalsize
