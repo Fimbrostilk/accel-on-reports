@@ -40,7 +40,7 @@
 \newcommand{\asignatura}[1]{\renewcommand{\@asignatura}{#1}}
 \newcommand{\profesor}[1]{\renewcommand{\@profesor}{#1}}
 \newcommand{\carrera}[1]{\renewcommand{\@carrera}{#1}}
-\newcommand{\equipo}[2]{\renewcommand{\@equipo}{#1}} % Aún no implementado
+\newcommand{\equipo}[1]{\renewcommand{\@equipo}{#1}}
 
 % --- Redefinición del comando \maketitle ---
 \renewcommand{\maketitle}{
@@ -101,6 +101,7 @@
 			\ifdefempty{\@asignatura}{}{\textbf{Asignatura:} \@asignatura \\[0.3cm]}
 			\ifdefempty{\@equipo}{}{\textbf{Equipo}}
 			\ifdefempty{\@author}{}{\textbf{Alumno:} \@author \\[0.3cm]}
+			\ifdefempty{\@equipo}{}{\@equipo \\[0.3cm]}
 			\ifdefempty{\@carrera}{}{\textbf{Carrera:} \@carrera \\[0.3cm]}
 			\ifdefempty{\@boleta}{}{\textbf{Boleta:} \@boleta \\[0.3cm]}
 			\ifdefempty{\@profesor}{}{\textbf{Profesor:} \@profesor \\[0.3cm]}
@@ -111,3 +112,4 @@
 		\end{tikzpicture}
 	\end{titlepage}
 }
+
