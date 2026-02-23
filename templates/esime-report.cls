@@ -14,13 +14,14 @@
 \RequirePackage{graphicx} % Insertar gráficos
 \RequirePackage{etoolbox} % Para \ifdefempty
 \RequirePackage{anyfontsize} % Usar cualquier tamaño de font
+\RequirePackage{microtype}
 
 % --- Configuración de márgenes ---
 \geometry{
     top=1in,
     bottom=1in,
-    left=1in,
-    right=1in
+    left=0.8in,
+    right=0.8in
 }
 
 % --- Definición de variables (Metadatos) ---
@@ -30,8 +31,9 @@
 \newcommand{\@grupo}{}
 \newcommand{\@asignatura}{}
 \newcommand{\@profesor}{}
-\newcommand{\@carrera}{}
+\newcommand{\@carrera}{Ingeniería en Comunicaciones y Electrónica}
 \newcommand{\@equipo}{}
+\newcommand{\@alumno}{}
 
 % Comandos públicos para que el usuario defina los valores
 \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
@@ -41,6 +43,7 @@
 \newcommand{\profesor}[1]{\renewcommand{\@profesor}{#1}}
 \newcommand{\carrera}[1]{\renewcommand{\@carrera}{#1}}
 \newcommand{\equipo}[1]{\renewcommand{\@equipo}{#1}}
+\newcommand{\alumno}[1]{\renewcommand{\@alumno}{#1}}
 
 % --- Redefinición del comando \maketitle ---
 \renewcommand{\maketitle}{
@@ -98,14 +101,13 @@
 		\node[anchor=south] at ($(current page.south) + (0in, 1in)$) {
 			\begin{minipage}{8cm}
 			\normalsize
-			\ifdefempty{\@asignatura}{}{\textbf{Asignatura:} \@asignatura \\[0.3cm]}
-			\ifdefempty{\@equipo}{}{\textbf{Equipo}}
-			\ifdefempty{\@author}{}{\textbf{Alumno:} \@author \\[0.3cm]}
-			\ifdefempty{\@equipo}{}{\@equipo \\[0.3cm]}
-			\ifdefempty{\@carrera}{}{\textbf{Carrera:} \@carrera \\[0.3cm]}
-			\ifdefempty{\@boleta}{}{\textbf{Boleta:} \@boleta \\[0.3cm]}
-			\ifdefempty{\@profesor}{}{\textbf{Profesor:} \@profesor \\[0.3cm]}
-			\ifdefempty{\@grupo}{}{\textbf{Grupo:} \@grupo \\[0.3cm]}
+			\ifdefempty{\@asignatura}{}{\textbf{Asignatura:} \@asignatura \par\vspace{0.3cm}}
+			\ifdefempty{\@alumno}{}{\textbf{Alumno:} \@alumno \par\vspace{0.3cm}}
+			\ifdefempty{\@equipo}{}{\@equipo \par\vspace{0.3cm}}
+			\ifdefempty{\@carrera}{}{\textbf{Carrera:} \@carrera \par\vspace{0.3cm}}
+			\ifdefempty{\@boleta}{}{\textbf{Boleta:} \@boleta \par\vspace{0.3cm}}
+			\ifdefempty{\@profesor}{}{\textbf{Profesor:} \@profesor \par\vspace{0.3cm}}
+			\ifdefempty{\@grupo}{}{\textbf{Grupo:} \@grupo \par\vspace{0.3cm}}
 			\ifdefempty{\@date}{}{\textbf{Fecha:} \@date}
 			\end{minipage}
 		};
