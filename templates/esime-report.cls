@@ -107,9 +107,9 @@
 			\ifdefempty{\@asignatura}{}{\textbf{Asignatura:} \@asignatura \par\vspace{0.3cm}}
 			\ifdefempty{\@boleta}{}{\textbf{Boleta:} \@boleta \par\vspace{0.3cm}}
 			\ifdefempty{\@carrera}{}{\textbf{Carrera:} \@carrera \par\vspace{0.3cm}}
-			\ifdefempty{\@date}{}{\textbf{Fecha:} \@date}
 			\ifdefempty{\@equipo}{}{\@equipo \par\vspace{0.3cm}}
-			\ifdefempty{\@entrega}{}{\@entrega \par\vspace{0.3cm}}
+			\ifdefempty{\@date}{}{\textbf{Fecha de Elaboración:} \@date \par\vspace{0.3cm}}
+			\ifdefempty{\@entrega}{}{\textbf{Fecha de Entrega:} \@entrega \par\vspace{0.3cm}}
 			\ifdefempty{\@grupo}{}{\textbf{Grupo:} \@grupo \par\vspace{0.3cm}}
 			\ifdefempty{\@profesor}{}{\textbf{Profesor:} \@profesor \par\vspace{0.3cm}}
 			\end{minipage}
@@ -117,5 +117,6 @@
 		\end{tikzpicture}
 	\end{titlepage}
 }
+
 
 
