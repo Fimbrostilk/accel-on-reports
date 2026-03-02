@@ -34,6 +34,7 @@
 \newcommand{\@carrera}{Ingeniería en Comunicaciones y Electrónica}
 \newcommand{\@equipo}{}
 \newcommand{\@alumno}{}
+\newcommand{\@entrega}{}
 
 % Comandos públicos para que el usuario defina los valores
 \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
@@ -44,6 +45,7 @@
 \newcommand{\carrera}[1]{\renewcommand{\@carrera}{#1}}
 \newcommand{\equipo}[1]{\renewcommand{\@equipo}{#1}}
 \newcommand{\alumno}[1]{\renewcommand{\@alumno}{#1}}
+\newcommand{\entrega}[1]{\renewcommand{\@entrega}{#1}}
 
 % --- Redefinición del comando \maketitle ---
 \renewcommand{\maketitle}{
@@ -101,17 +103,19 @@
 		\node[anchor=south] at ($(current page.south) + (0in, 1in)$) {
 			\begin{minipage}{8cm}
 			\normalsize
-			\ifdefempty{\@asignatura}{}{\textbf{Asignatura:} \@asignatura \par\vspace{0.3cm}}
 			\ifdefempty{\@alumno}{}{\textbf{Alumno:} \@alumno \par\vspace{0.3cm}}
-			\ifdefempty{\@equipo}{}{\@equipo \par\vspace{0.3cm}}
-			\ifdefempty{\@carrera}{}{\textbf{Carrera:} \@carrera \par\vspace{0.3cm}}
+			\ifdefempty{\@asignatura}{}{\textbf{Asignatura:} \@asignatura \par\vspace{0.3cm}}
 			\ifdefempty{\@boleta}{}{\textbf{Boleta:} \@boleta \par\vspace{0.3cm}}
-			\ifdefempty{\@profesor}{}{\textbf{Profesor:} \@profesor \par\vspace{0.3cm}}
-			\ifdefempty{\@grupo}{}{\textbf{Grupo:} \@grupo \par\vspace{0.3cm}}
+			\ifdefempty{\@carrera}{}{\textbf{Carrera:} \@carrera \par\vspace{0.3cm}}
 			\ifdefempty{\@date}{}{\textbf{Fecha:} \@date}
+			\ifdefempty{\@equipo}{}{\@equipo \par\vspace{0.3cm}}
+			\ifdefempty{\@entrega}{}{\@entrega \par\vspace{0.3cm}}
+			\ifdefempty{\@grupo}{}{\textbf{Grupo:} \@grupo \par\vspace{0.3cm}}
+			\ifdefempty{\@profesor}{}{\textbf{Profesor:} \@profesor \par\vspace{0.3cm}}
 			\end{minipage}
 		};
 		\end{tikzpicture}
 	\end{titlepage}
 }
+
 
