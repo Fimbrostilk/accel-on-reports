@@ -35,7 +35,7 @@
 \newcommand{\@equipo}{}
 \newcommand{\@alumno}{}
 \newcommand{\@entrega}{}
-\newcommand{\@ya?}{}
+\newcommand{\@ya}{}
 
 % Comandos públicos para que el usuario defina los valores
 \newcommand{\subtitle}[1]{\renewcommand{\@subtitle}{#1}}
@@ -65,9 +65,11 @@
 			\includegraphics[height=3cm]{imagenes/ipn.png}
 		};
 		% Logo inferior izquierdo
-		\ifdefempty{\@ya?}{}{\node[anchor=center] at ($(current page.south west) + (1.5in, 1.5in)$) {
+		\ifdefempty{\@ya}{}{%
+		\node[anchor=center] at ($(current page.south west) + (1.5in, 1.5in)$) {
 			\includegraphics[width=3cm]{imagenes/esime-ice.png}
-		};}}
+		};
+		}
 
 		% --- Elementos Gráficos (Líneas) ---
 		% Líneas del encabezado
@@ -75,8 +77,10 @@
 		\draw[line width=0.5mm] ($(current page.north west) + (2.5in, -1.6in)$) -- ($(current page.north east) + (-2.5in, -1.6in)$);
 
 		% Líneas del márgen izquierdo
-		\ifdefempty{\@ya?}{}{\draw[line width=1mm] ($(current page.north west) + (1.45in, -2.5in)$) -- ($(current page.south west) + (1.45in, 2.5in)$);
-		\draw[line width=0.5mm] ($(current page.north west) + (1.55in, -2.5in)$) -- ($(current page.south west) + (1.55in, 2.5in)$);}
+		\ifdefempty{\@ya}{}{%
+		\draw[line width=1mm] ($(current page.north west) + (1.45in, -2.5in)$) -- ($(current page.south west) + (1.45in, 2.5in)$);
+		\draw[line width=0.5mm] ($(current page.north west) + (1.55in, -2.5in)$) -- ($(current page.south west) + (1.55in, 2.5in)$);
+		}
 
 		% --- Encabezado institucional ---
 		\node[anchor = north] at ($(current page.north) + (0in, -1.2in)$) {%
@@ -118,6 +122,7 @@
 		\end{tikzpicture}
 	\end{titlepage}
 }
+
 
 
 
