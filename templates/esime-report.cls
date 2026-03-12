@@ -35,6 +35,7 @@
 \newcommand{\@equipo}{}
 \newcommand{\@alumno}{}
 \newcommand{\@entrega}{}
+\newcommand{\@realizacion}{}
 \newcommand{\@ya}{}
 
 % Comandos públicos para que el usuario defina los valores
@@ -47,6 +48,7 @@
 \newcommand{\equipo}[1]{\renewcommand{\@equipo}{#1}}
 \newcommand{\alumno}[1]{\renewcommand{\@alumno}{#1}}
 \newcommand{\entrega}[1]{\renewcommand{\@entrega}{#1}}
+\newcommand{\realizacion}[1]{\renewcommand{\@realizacion}{#1}}
 
 % --- Redefinición del comando \maketitle ---
 \renewcommand{\maketitle}{
@@ -113,7 +115,7 @@
 			\ifdefempty{\@boleta}{}{\textbf{Boleta:} \@boleta \par\vspace{0.3cm}}
 			\ifdefempty{\@carrera}{}{\textbf{Carrera:} \@carrera \par\vspace{0.3cm}}
 			\ifdefempty{\@equipo}{}{\@equipo \par\vspace{0.3cm}}
-			\ifdefempty{\@date}{}{\textbf{Fecha de Elaboración:} \@date \par\vspace{0.3cm}}
+			\ifdefempty{\@realizacion}{}{\textbf{Fecha de Elaboración:} \@realizacion \par\vspace{0.3cm}}
 			\ifdefempty{\@entrega}{}{\textbf{Fecha de Entrega:} \@entrega \par\vspace{0.3cm}}
 			\ifdefempty{\@grupo}{}{\textbf{Grupo:} \@grupo \par\vspace{0.3cm}}
 			\ifdefempty{\@profesor}{}{\textbf{Profesor:} \@profesor \par\vspace{0.3cm}}
@@ -122,6 +124,7 @@
 		\end{tikzpicture}
 	\end{titlepage}
 }
+
 
 
 
