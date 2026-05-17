@@ -6,5 +6,5 @@ Standardizing engineering reports with efficiency.
 git clone https://github.com/Fimbrostilk/accel-on-reports
 cd accel-on-reports
 chmod +x install.sh
-./install.sh
+sudo ./install.sh
 ```
